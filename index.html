@@ -17,6 +17,54 @@
 .notice{grid-column:1/-1;margin-top:15px;display:flex;gap:10px;align-items:flex-start;color:#4e675a;background:#edf5ef;border:1px solid #dce9df;border-radius:13px;padding:13px 16px;font-size:12px}.notice strong{color:var(--green)}.footer{display:flex;justify-content:space-between;gap:15px;align-items:center;border-top:1px solid #dae7de;margin-top:23px;padding:21px 0 29px;color:#6d8275;font-size:12px}.footer strong{color:var(--green)}.kbd{font:600 11px ui-monospace,SFMono-Regular,Consolas,monospace;background:#f1f6f2;border:1px solid #dce8df;border-radius:5px;padding:2px 5px;color:#4c725c}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,15px);background:#153d2a;color:#fff;border:1px solid #2c6948;box-shadow:0 12px 45px #13371e3b;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:50;font-size:13px;font-weight:750}.toast.active{opacity:1;transform:translate(-50%,0)}.hidden{display:none!important}
 @media(max-width:1250px){.workspace{grid-template-columns:292px minmax(380px,1fr)}.fact-panel{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:15px;align-items:start}.fact-panel .panel-heading{grid-column:1/-1;margin-bottom:-2px}.fact-panel .math-card{margin:0}.fact-panel .fact-list{margin:0}.fact-panel .formula{grid-column:2;margin:0}.fact-panel .investigate{grid-column:3;grid-row:2/4}.canvas-holder{height:490px}}@media(max-width:850px){.shell{width:min(680px,calc(100% - 32px))}.nav{min-height:79px}.brand-logo{width:120px;height:56px}.brand-text{font-size:12px}.header-tag{display:none}.hero{padding-top:26px;display:block}.hero p{font-size:14px}.professor{margin-top:17px;display:inline-flex}.workspace{display:flex;flex-direction:column}.control-panel,.scene-panel,.fact-panel{width:100%}.control-panel{order:2}.scene-panel{order:1}.stats{order:3}.fact-panel{order:4;display:block}.fact-panel .panel-heading{margin-bottom:14px}.fact-panel .math-card,.fact-panel .fact-list,.fact-panel .formula{margin-bottom:16px}.canvas-holder{height:480px}.stats{margin-top:0}.notice{order:5;margin-top:0}}@media(max-width:510px){.brand-divider{height:30px}.brand{gap:10px}.brand-logo{width:102px;height:50px}.brand-text{font-size:11px}.brand-text small{font-size:9px}.hero h1{font-size:31px}.canvas-holder{height:420px;min-height:420px}.stats{gap:7px}.stat{padding:10px 8px;gap:7px;justify-content:center}.stat-icon{width:30px;height:30px;font-size:15px}.stat-count{font-size:23px}.stat-label{font-size:10px}.stat-description{font-size:9px}.scene-bottom{padding:10px}.scene-footnote{display:none}.drag-tip{font-size:10px}.scene-tools{right:9px;top:11px}.view-badge{left:10px;top:11px;max-width:50%;font-size:10px;padding:7px}.view-badge strong{font-size:12px}.tool-btn{width:31px;height:31px}.footer{flex-direction:column;align-items:start}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* Laboratório 2.0: planificações, medidas e modo de ampliação */
+.workspace > div{min-width:0}
+.workspace.facts-collapsed{grid-template-columns:310px minmax(0,1fr)}
+.workspace.facts-collapsed .fact-panel{display:none!important}
+.scene-heading{white-space:nowrap}
+.scene-head-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.mini-btn{background:#f5faf7;border:1px solid #d7e6dc;border-radius:9px;color:#18583a;font-size:12px;font-weight:760;padding:8px 10px;line-height:1.2;cursor:pointer;white-space:nowrap}
+.mini-btn:hover{background:#e6f2e9}
+.modebar{padding:11px 18px;display:flex;gap:7px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #e7eee8;background:#fbfdfb}
+.modebar .mini-btn.selected{background:#145131;color:white;border-color:#145131}
+.modebar .modehint{margin-left:auto;font-size:11px;color:#667e6f}
+.view-frames{display:block;min-width:0}
+.net-holder{height:clamp(440px,46vw,570px);min-height:495px;position:relative;background:#fbfdfb;overflow:hidden}
+.net-holder:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#e2ebe333 1px,transparent 1px),linear-gradient(#e2ebe333 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+#netCanvas{display:block;position:absolute;inset:0;width:100%;height:100%;}
+.net-view-badge{position:absolute;top:17px;left:18px;display:flex;gap:6px;align-items:center;background:#fffdf8e8;border:1px solid #dbe6db;color:#154a36;font-size:11px;font-weight:800;border-radius:9px;padding:7px 11px;pointer-events:none}
+.scene-panel[data-view="3d"] .net-holder{display:none}
+.scene-panel[data-view="2d"] .canvas-holder{display:none}
+.scene-panel[data-view="both"] .view-frames{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.scene-panel[data-view="both"] .canvas-holder,.scene-panel[data-view="both"] .net-holder{height:460px;min-height:460px}
+.scene-panel[data-view="both"] .canvas-holder{border-right:1px solid #dfe9e1}
+.scene-panel[data-view="both"] .drag-tip{font-size:10px}
+.export-panel{padding:15px 19px;background:#f7faf8;border-top:1px solid #e7f0e8}
+.export-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.export-head strong{font-size:12px;color:var(--navy)}
+.export-head span{color:var(--muted);font-size:11px}
+.export-actions{display:flex;gap:7px;flex-wrap:wrap}
+.export-actions .secondary-btn{font-size:11px;min-height:36px;padding:7px 11px;background:#fff}
+.export-actions .secondary-btn.stl{background:#e9f3ed;color:#145131;border-color:#bedaca}
+.export-actions .secondary-btn:hover{background:#e4f1e7}
+.export-footnote{font-size:11px;color:#62756a;margin:10px 0 0;line-height:1.6}
+.scale-line{display:flex;align-items:center;justify-content:space-between;gap:9px}
+.scale-line select{font-size:12px;color:#134c31;background:#f8fbf9;border:1px solid #d7e7db;padding:7px 9px;border-radius:9px;max-width:100%;font-weight:700}
+.measure-box{border:1px solid #d2e6d9;border-radius:13px;padding:14px;background:linear-gradient(115deg,#f0f9f2,#fff);margin:14px 0 16px}
+.measure-box h3{font-weight:850;font-size:13px;color:var(--navy);margin:0 0 10px}
+.measure-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.measure-tile{border:1px solid #e0ebe3;background:#fff;border-radius:10px;padding:10px 8px}
+.measure-tile small{display:block;color:#658074;font-size:10px;font-weight:750;margin-bottom:5px}
+.measure-tile strong{display:block;color:#105334;font-size:19px;white-space:nowrap;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.measure-formula{font-size:12px;margin-top:11px;color:#39584a;line-height:1.7}
+.measure-formula b{color:#083466}
+.measure-detail{font-size:10.5px;color:#6d8074;margin:8px 0 0}
+.net-warning{margin:9px 19px 0;color:#5b7669;font-size:11px;line-height:1.5}
+@media(max-width:1250px){.workspace.facts-collapsed{grid-template-columns:292px minmax(0,1fr)}.fact-panel{grid-column:1/-1}}
+@media(max-width:850px){.workspace.facts-collapsed{display:flex}.scene-panel[data-view="both"] .view-frames{grid-template-columns:1fr}.scene-panel[data-view="both"] .canvas-holder,.scene-panel[data-view="both"] .net-holder{min-height:400px;height:400px}.scene-panel[data-view="both"] .canvas-holder{border-right:none;border-bottom:1px solid var(--border)}.net-holder{height:480px;min-height:480px}.modebar .modehint{width:100%;margin-left:0}.scene-header{flex-wrap:wrap}}
+@media(max-width:510px){.net-holder{height:400px;min-height:400px}.scene-head-actions .live-pill{display:none}.mini-btn{font-size:11px;padding:7px 8px}.export-actions .secondary-btn{flex:1 1 43%;text-align:center;justify-content:center}.measure-tile strong{font-size:16px}}
+@media print{.site-header,.hero,.control-panel,.fact-panel,.stats,.scene-panel,.notice,.footer{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -26,8 +74,8 @@
   <span class="header-tag"><span class="dot"></span>Recurso didático interativo</span>
 </div></header>
 <main class="shell" id="inicio">
-<section class="hero"><div><div class="overline">Geometria espacial • Ambiente de aprendizagem</div><h1>Sólidos geométricos <span style="color:var(--green2)">em 3D</span></h1><p>Personalize sólidos, observe suas propriedades e investigue as relações entre faces, arestas e vértices. Arraste o modelo para visualizar de diferentes perspectivas.</p></div><div class="professor"><span class="avatar" aria-hidden="true">π</span><div>Professor responsável<strong>Bruno Fabiano Chiodini</strong></div></div></section>
-<section class="workspace" aria-label="Laboratório interativo">
+<section class="hero"><div><div class="overline">Geometria espacial • Ambiente de aprendizagem</div><h1>Sólidos geométricos <span style="color:var(--green2)">em 3D</span></h1><p>Personalize sólidos, calcule áreas e volumes, explore planificações para impressão e investigue as relações entre faces, arestas e vértices.</p></div><div class="professor"><span class="avatar" aria-hidden="true">π</span><div>Professor responsável<strong>Bruno Fabiano Chiodini</strong></div></div></section>
+<section class="workspace" id="workspace" aria-label="Laboratório interativo">
   <aside class="panel control-panel" aria-label="Personalização do sólido">
     <div class="panel-heading"><div class="panel-title"><span class="ico" aria-hidden="true">⚙</span> Personalizar sólido</div><span class="panel-subtitle">CONTROLES</span></div>
     <div class="form-section"><label class="field-title" for="solidType">Tipo de sólido geométrico</label><div class="select-wrap"><select id="solidType">
@@ -35,22 +83,27 @@
       <optgroup label="Corpos redondos"><option value="cylinder">Cilindro</option><option value="cone">Cone</option><option value="sphere">Esfera</option></optgroup>
     </select></div><p class="info-tip" id="typeTip">Prismas possuem duas bases congruentes e paralelas.</p></div>
     <div class="form-section" id="sidesSection"><div class="number-line"><label class="field-title" for="sidesRange" style="margin:0">Lados do polígono da base</label><span class="value-tag" id="sidesValue">5</span></div><div class="stepper"><button class="squarebtn" id="minusSide" title="Diminuir um lado" aria-label="Diminuir número de lados">−</button><input type="range" class="range" id="sidesRange" min="3" max="12" value="5" aria-label="Número de lados da base" /><button class="squarebtn" id="plusSide" title="Aumentar um lado" aria-label="Aumentar número de lados">+</button></div><p class="info-tip" id="baseName">Base pentagonal • 5 lados</p></div>
-    <div class="form-section"><div class="dimension"><label class="field-title dim-title" for="radiusRange"><span id="radiusTitle">Raio da base</span><output id="radiusValue" for="radiusRange">1,2 u.</output></label><input class="range" type="range" id="radiusRange" min="0.6" max="2" step="0.1" value="1.2" /></div><div class="dimension" id="heightSection"><label class="field-title dim-title" for="heightRange"><span>Altura do sólido</span><output id="heightValue" for="heightRange">2,4 u.</output></label><input class="range" type="range" id="heightRange" min="0.8" max="3.5" step="0.1" value="2.4" /></div><p class="info-tip">Medidas em unidades arbitrárias (u.), para exploração visual.</p></div>
+    <div class="form-section"><div class="dimension"><label class="field-title dim-title" for="radiusRange"><span id="radiusTitle">Raio da base</span><output id="radiusValue" for="radiusRange">1,2 u.</output></label><input class="range" type="range" id="radiusRange" min="0.6" max="2" step="0.1" value="1.2" /></div><div class="dimension" id="heightSection"><label class="field-title dim-title" for="heightRange"><span>Altura do sólido</span><output id="heightValue" for="heightRange">2,4 u.</output></label><input class="range" type="range" id="heightRange" min="0.8" max="3.5" step="0.1" value="2.4" /></div><p class="info-tip">Dimensões em unidades geométricas (u.). Para exportação física, escolha a equivalência em milímetros.</p></div>
     <div class="form-section"><span class="field-title">Cor do sólido</span><div class="color-swatches" id="swatches"><button class="swatch selected" style="background:#24805a" data-color="#24805a" title="Verde" aria-label="Cor verde" aria-pressed="true"></button><button class="swatch" style="background:#124e30" data-color="#124e30" title="Verde institucional" aria-label="Verde institucional" aria-pressed="false"></button><button class="swatch" style="background:#083466" data-color="#083466" title="Azul institucional" aria-label="Azul institucional" aria-pressed="false"></button><button class="swatch" style="background:#158eaa" data-color="#158eaa" title="Azul turquesa" aria-label="Azul turquesa" aria-pressed="false"></button><button class="swatch" style="background:#bd8d43" data-color="#bd8d43" title="Dourado" aria-label="Dourado" aria-pressed="false"></button><input id="customColor" class="custom-color" type="color" value="#24805a" title="Escolher outra cor" aria-label="Escolher cor personalizada" /></div></div>
     <div class="form-section"><span class="field-title">Exibir elementos geométricos</span><label class="toggle-row">Faces / superfície <span class="switch"><input id="showFaces" type="checkbox" checked /><span class="track"></span></span></label><label class="toggle-row">Arestas <span class="switch"><input id="showEdges" type="checkbox" checked /><span class="track"></span></span></label><label class="toggle-row">Vértices <span class="switch"><input id="showVertices" type="checkbox" checked /><span class="track"></span></span></label><label class="toggle-row">Identificar vértices (A, B, C...) <span class="switch"><input id="showLabels" type="checkbox" /><span class="track"></span></span></label><label class="toggle-row" id="gridLabel">Linhas auxiliares na esfera <span class="switch"><input id="showGrid" type="checkbox" /><span class="track"></span></span></label></div>
-    <button class="primary-btn" id="generateBtn"><span aria-hidden="true">✦</span> Gerar / atualizar sólido</button><div class="side-caption">As alterações também são atualizadas automaticamente.</div>
+    <div class="form-section"><div class="scale-line"><label class="field-title" for="printScale" style="margin:0">Escala para exportação</label><select id="printScale" aria-label="Quantos milímetros representa uma unidade"><option value="10" selected>1 u. = 10 mm</option><option value="20">1 u. = 20 mm</option><option value="30">1 u. = 30 mm</option></select></div><p class="info-tip">Aplicada aos arquivos SVG e STL. Para imprimir a planificação, configure 100% (tamanho real) no navegador.</p></div>
+     <button class="primary-btn" id="generateBtn"><span aria-hidden="true">✦</span> Gerar / atualizar sólido</button><div class="side-caption">As alterações também são atualizadas automaticamente.</div>
   </aside>
   <div>
-    <section class="panel scene-panel" aria-label="Visualizador interativo 3D"><div class="scene-header"><div class="scene-heading"><span class="cube-icon">⬡</span> Área de visualização</div><div class="live-pill"><span></span>Visualização interativa</div></div>
-      <div class="canvas-holder" id="canvasHolder"><canvas id="scene" role="img" aria-label="Visualização tridimensional interativa do sólido geométrico. Arraste ou use as setas do teclado para rotacionar." tabindex="0"></canvas><div class="view-badge"><strong id="solidTitle">Prisma pentagonal</strong><span id="solidSubtitle">Base com 5 lados</span></div><div class="scene-tools"><button class="tool-btn" id="zoomIn" title="Aproximar" aria-label="Aproximar">＋</button><button class="tool-btn" id="zoomOut" title="Afastar" aria-label="Afastar">－</button><button class="tool-btn" id="autoRotate" title="Giro automático" aria-label="Ativar giro automático" aria-pressed="false">⟳</button><button class="tool-btn" id="resetView" title="Redefinir visualização" aria-label="Redefinir visualização">⌂</button></div><div class="drag-tip">↔ Arraste para girar · Role para aproximar</div></div>
-      <div class="scene-bottom"><span class="scene-footnote">Modelo 3D construído no navegador • Funciona sem internet</span><div class="action-btns"><button class="secondary-btn" id="pngBtn"><span aria-hidden="true">↓</span> Salvar imagem PNG</button></div></div>
+    <section class="panel scene-panel" id="scenePanel" data-view="3d" aria-label="Visualizador interativo 3D e planificação 2D"><div class="scene-header"><div class="scene-heading"><span class="cube-icon">⬡</span> Área de visualização</div><div class="scene-head-actions"><button class="mini-btn" id="toggleFacts" aria-controls="factsPanel" aria-expanded="true">Ocultar propriedades</button><div class="live-pill"><span></span>Visualização interativa</div></div></div>
+      <div class="modebar" role="group" aria-label="Modo de visualização"><button class="mini-btn selected" data-view-choice="3d" aria-pressed="true">◈ Modelo 3D</button><button class="mini-btn" data-view-choice="2d" aria-pressed="false">▱ Planificação 2D</button><button class="mini-btn" data-view-choice="both" aria-pressed="false">◫ Lado a lado</button><span class="modehint">Arraste o 3D para girar · Observe os cortes e as dobras no 2D</span></div>
+       <div class="view-frames"><div class="canvas-holder" id="canvasHolder"><canvas id="scene" role="img" aria-label="Visualização tridimensional interativa do sólido geométrico. Arraste ou use as setas do teclado para rotacionar." tabindex="0"></canvas><div class="view-badge"><strong id="solidTitle">Prisma pentagonal</strong><span id="solidSubtitle">Base com 5 lados</span></div><div class="scene-tools"><button class="tool-btn" id="zoomIn" title="Aproximar" aria-label="Aproximar">＋</button><button class="tool-btn" id="zoomOut" title="Afastar" aria-label="Afastar">－</button><button class="tool-btn" id="autoRotate" title="Giro automático" aria-label="Ativar giro automático" aria-pressed="false">⟳</button><button class="tool-btn" id="resetView" title="Redefinir visualização" aria-label="Redefinir visualização">⌂</button></div><div class="drag-tip">↔ Arraste para girar · Role para aproximar</div></div>
+      <div class="net-holder"><canvas id="netCanvas" role="img" aria-label="Planificação bidimensional do sólido, com linhas de corte e dobra"></canvas><div class="net-view-badge">▱ Planificação para recorte e montagem</div></div></div>
+       <div class="scene-bottom"><span class="scene-footnote">Modelo 3D construído no navegador • Funciona sem internet</span><div class="action-btns"><button class="secondary-btn" id="pngBtn"><span aria-hidden="true">↓</span> Imagem 3D · PNG</button></div></div>
+      <div class="export-panel"><div class="export-head"><strong>Exportação e impressão</strong><span>Modelos 2D e 3D • downloads locais</span></div><div class="export-actions"><button class="secondary-btn" id="netPngBtn">↓ Imagem 2D (PNG)</button><button class="secondary-btn" id="netSvgBtn">↓ Planificação (SVG)</button><button class="secondary-btn" id="sheetPngBtn">↓ Ficha 3D + 2D (PNG)</button><button class="secondary-btn" id="netPrintBtn">▣ Imprimir 2D</button><button class="secondary-btn stl" id="stlBtn">↓ Imprimir 3D (STL)</button></div><p class="export-footnote">SVG: desenho vetorial de recorte e dobra. STL: malha tridimensional fechada, destinada a programas de fatiamento e impressoras 3D. Confira as dimensões antes de fabricar.</p></div><p class="net-warning" id="netWarning" aria-live="polite"></p>
     </section>
     <div class="stats" aria-live="polite"><div class="stat"><span class="stat-icon">•</span><div><span class="stat-label">VÉRTICES</span><strong class="stat-count" id="countV">10</strong><span class="stat-description">Pontos de encontro</span></div></div><div class="stat"><span class="stat-icon">╱</span><div><span class="stat-label">ARESTAS</span><strong class="stat-count" id="countE">15</strong><span class="stat-description" id="edgesDescr">Segmentos de reta</span></div></div><div class="stat"><span class="stat-icon">▱</span><div><span class="stat-label">FACES</span><strong class="stat-count" id="countF">7</strong><span class="stat-description" id="facesDescr">Regiões planas</span></div></div></div>
   </div>
-  <aside class="panel fact-panel" aria-label="Informações matemáticas">
+  <aside class="panel fact-panel" id="factsPanel" aria-label="Informações matemáticas">
     <div class="panel-heading"><div class="panel-title"><span class="ico" aria-hidden="true">∑</span> Propriedades</div><span class="panel-subtitle">INVESTIGAÇÃO</span></div>
     <div class="math-card"><div class="math-title" id="eulerTitle">Relação de Euler</div><div class="equation" id="eulerEquation">10 − 15 + 7 = 2</div><p class="equation-sub" id="eulerCaption">V − A + F = 2</p><span class="math-pass" id="eulerBadge">✓ Relação verificada</span></div>
-    <div class="fact-list"><div class="eyebrow">Características do sólido</div><div class="fact-line"><span>Classificação</span><b id="factClass">Poliedro convexo</b></div><div class="fact-line"><span>Base</span><b id="factBase">Pentagonal</b></div><div class="fact-line"><span>Faces laterais</span><b id="factLateral">5</b></div><div class="fact-line"><span>Número de bases</span><b id="factBases">2</b></div></div>
+    <div class="measure-box" aria-live="polite"><h3>Área total e volume</h3><div class="measure-grid"><div class="measure-tile"><small>ÁREA TOTAL</small><strong id="totalArea">—</strong></div><div class="measure-tile"><small>VOLUME</small><strong id="totalVolume">—</strong></div></div><div class="measure-formula"><div><b>Área:</b> <span id="areaFormula">—</span></div><div><b>Volume:</b> <span id="volumeFormula">—</span></div></div><p class="measure-detail" id="measureDetail"></p></div>
+     <div class="fact-list"><div class="eyebrow">Características do sólido</div><div class="fact-line"><span>Classificação</span><b id="factClass">Poliedro convexo</b></div><div class="fact-line"><span>Base</span><b id="factBase">Pentagonal</b></div><div class="fact-line"><span>Faces laterais</span><b id="factLateral">5</b></div><div class="fact-line"><span>Número de bases</span><b id="factBases">2</b></div></div>
     <div class="formula"><h3 class="formula-title" id="formulaTitle">Fórmulas do prisma</h3><div id="formulaLines"><div><b>V = 2n</b> → 10</div><div><b>A = 3n</b> → 15</div><div><b>F = n + 2</b> → 7</div></div></div>
     <div class="investigate"><h3><span aria-hidden="true">✦</span> Para investigar</h3><p id="questionText">Se o número de lados da base aumentar em 1, como se alteram os números de vértices, arestas e faces?</p><button id="anotherQuestion">Outra pergunta ↗</button></div>
   </aside>
@@ -105,10 +158,193 @@ if(data.grid){const lines=[];for(let lat of [-.65,-.32,0,.32,.65]){let arr=[];fo
 }
 function render(C,w,h,exporting=false){C.clearRect(0,0,w,h);drawBg(C,w,h,exporting);if(!activeGeo)return;if(activeGeo.kind==='sphere')drawSphere(C,w,h);else drawPoly(C,w,h,activeGeo);}
 function resize(){const r=canvas.getBoundingClientRect();if(!r.width||!r.height)return;const dpr=Math.min(devicePixelRatio||1,2);stageW=r.width;stageH=r.height;canvas.width=Math.round(stageW*dpr);canvas.height=Math.round(stageH*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);render(ctx,stageW,stageH);}
+// Cálculos métricos: u. (modelagem), u² (área), u³ (volume).
+const fmtMetric = n => new Intl.NumberFormat('pt-BR',{maximumFractionDigits:3,minimumFractionDigits:2}).format(n);
+function measures(){
+ const {type:t,n,radius:r,height:h}=data;
+ const regular=(k)=>{const B=k*r*r*Math.sin(2*Math.PI/k)/2, P=2*k*r*Math.sin(Math.PI/k),ap=r*Math.cos(Math.PI/k);return {B,P,ap};};
+ let area=0,volume=0,base=null,lateral=null,areaFormula='',volumeFormula='',detail='';
+ if(t==='prism'){const g=regular(n);base=g.B;lateral=g.P*h;area=2*base+lateral;volume=base*h;areaFormula='Aₜ = 2Aᵦ + Pᵦ · h';volumeFormula='V = Aᵦ · h';detail=`Área da base: ${fmtMetric(base)} u² · Perímetro: ${fmtMetric(g.P)} u`}
+ else if(t==='pyramid'){const g=regular(n),apL=Math.hypot(h,g.ap);base=g.B;lateral=g.P*apL/2;area=base+lateral;volume=base*h/3;areaFormula='Aₜ = Aᵦ + (Pᵦ · g)/2';volumeFormula='V = (Aᵦ · h)/3';detail=`Geratriz da face (apótema): ${fmtMetric(apL)} u`}
+ else if(t==='cube'){const a=Math.SQRT2*r;area=6*a*a;volume=a**3;base=a*a;lateral=4*a*a;areaFormula='Aₜ = 6a²';volumeFormula='V = a³';detail=`Aresta: ${fmtMetric(a)} u`}
+ else if(t==='box'){const a=2*r,b=1.4*r;area=2*(a*b+a*h+b*h);volume=a*b*h;base=a*b;lateral=2*h*(a+b);areaFormula='Aₜ = 2(ab + ah + bh)';volumeFormula='V = a · b · h';detail=`Dimensões: ${fmtMetric(a)} × ${fmtMetric(b)} × ${fmtMetric(h)} u`}
+ else if(t==='tetra'){const a=Math.sqrt(3)*r;area=Math.sqrt(3)*a*a;volume=a**3/(6*Math.SQRT2);base=a*a*Math.sqrt(3)/4;lateral=area-base;areaFormula='Aₜ = √3 · a²';volumeFormula='V = a³/(6√2)';detail=`Aresta: ${fmtMetric(a)} u`}
+ else if(t==='octa'){const a=Math.SQRT2*r;area=2*Math.sqrt(3)*a*a;volume=Math.SQRT2*a**3/3;areaFormula='Aₜ = 2√3 · a²';volumeFormula='V = (√2 · a³)/3';detail=`Aresta: ${fmtMetric(a)} u`}
+ else if(t==='cylinder'){base=Math.PI*r*r;lateral=2*Math.PI*r*h;area=2*base+lateral;volume=base*h;areaFormula='Aₜ = 2πr(r + h)';volumeFormula='V = πr²h';detail=`Área de cada base: ${fmtMetric(base)} u²`}
+ else if(t==='cone'){const g=Math.hypot(r,h);base=Math.PI*r*r;lateral=Math.PI*r*g;area=base+lateral;volume=base*h/3;areaFormula='Aₜ = πr(r + g)';volumeFormula='V = (πr²h)/3';detail=`Geratriz: ${fmtMetric(g)} u`}
+ else if(t==='sphere'){area=4*Math.PI*r*r;volume=4*Math.PI*r**3/3;areaFormula='Aₜ = 4πr²';volumeFormula='V = (4πr³)/3';detail='Esfera: superfície curva, sem planificação exata.'}
+ return {area,volume,base,lateral,areaFormula,volumeFormula,detail};
+}
+function updateMeasures(){const m=measures();$('totalArea').textContent=fmtMetric(m.area)+' u²';$('totalVolume').textContent=fmtMetric(m.volume)+' u³';$('areaFormula').textContent=m.areaFormula;$('volumeFormula').textContent=m.volumeFormula;$('measureDetail').textContent=m.detail;}
+
+// Construção de redes de planificação no plano, em unidades geométricas.
+const netPoint=(x,y)=>[x,y];
+function ngonFromSegment(n,ax,ay,bx,by){
+ const pts=[[ax,ay],[bx,by]],theta=-2*Math.PI/n;let dx=bx-ax,dy=by-ay;
+ for(let k=2;k<n;k++){const nx=dx*Math.cos(theta)-dy*Math.sin(theta),ny=dx*Math.sin(theta)+dy*Math.cos(theta),prev=pts[pts.length-1];pts.push([prev[0]+nx,prev[1]+ny]);dx=nx;dy=ny;}
+ return pts;
+}
+function newNet(){
+ const t=data.type,n=data.n,r=data.radius,h=data.height,faces=[],push=(pts,name)=>faces.push({pts,name});
+ let note='Linhas contínuas: recortar. Linhas tracejadas: dobrar. Para montar, una as bordas livres com fita.';
+ if(t==='prism'||t==='cube'){
+  const N=t==='cube'?4:n,s=2*r*Math.sin(Math.PI/N),height=t==='cube'?Math.SQRT2*r:h;
+  for(let i=0;i<N;i++){let x=i*s;push([[x,0],[(i+1)*s,0],[(i+1)*s,height],[x,height]],`Lateral ${i+1}`);}
+  push(ngonFromSegment(N,0,0,s,0),'Base 1');
+  push(ngonFromSegment(N,N*s,height,(N-1)*s,height),'Base 2');
+ }else if(t==='box'){
+  const a=2*r,b=1.4*r,ws=[a,b,a,b];let x=0;
+  for(let i=0;i<4;i++){push([[x,0],[x+ws[i],0],[x+ws[i],h],[x,h]],`Lateral ${i+1}`);x+=ws[i];}
+  push([[0,0],[a,0],[a,-b],[0,-b]],'Base 1');
+  push([[x,h],[x-b,h],[x-b,h+a],[x,h+a]],'Base 2');
+ }else if(t==='pyramid'||t==='tetra'){
+  const N=t==='tetra'?3:n,H=t==='tetra'?Math.SQRT2*r:h,ap=r*Math.cos(Math.PI/N),g=Math.hypot(H,ap);
+  const pts=Array.from({length:N},(_,i)=>[r*Math.cos(-Math.PI/2+i*2*Math.PI/N),r*Math.sin(-Math.PI/2+i*2*Math.PI/N)]);
+  push(pts,'Base');
+  for(let i=0;i<N;i++){
+   const a=pts[i],b=pts[(i+1)%N],dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy); // pts orientados no sentido anti-horário
+   const apex=[(a[0]+b[0])/2+g*dy/l,(a[1]+b[1])/2-g*dx/l];
+   push([a,b,apex],`Lateral ${i+1}`);
+  }
+ }else if(t==='octa'){
+  const s=Math.SQRT2*r,scale=s/2;
+  const coords={0:[[0,0],[2,0],[1,Math.sqrt(3)]],1:[[3,Math.sqrt(3)],[1,Math.sqrt(3)],[2,0]],2:[[0,0],[1,Math.sqrt(3)],[-1,Math.sqrt(3)]],7:[[3,Math.sqrt(3)],[2,0],[4,0]],4:[[0,0],[-1,Math.sqrt(3)],[-2,0]],5:[[-3,Math.sqrt(3)],[-2,0],[-1,Math.sqrt(3)]],3:[[-3,Math.sqrt(3)],[-1,Math.sqrt(3)],[-2,2*Math.sqrt(3)]],6:[[0,0],[1,-Math.sqrt(3)],[2,0]]};
+  for(const [i,poly] of Object.entries(coords))push(poly.map(p=>p.map(q=>q*scale)),`Triângulo ${Number(i)+1}`);
+ }else if(t==='cylinder'){
+  const P=2*Math.PI*r;
+  push([[0,0],[P,0],[P,h],[0,h]],'Superfície lateral');
+  const circle=(cx,cy)=>Array.from({length:144},(_,i)=>[cx+r*Math.cos(i*2*Math.PI/144),cy+r*Math.sin(i*2*Math.PI/144)]);
+  push(circle(r,-r-.12),'Base 1');push(circle(P-r,h+r+.12),'Base 2');
+  note='Planificação escolar: um retângulo e dois círculos. Fixe os círculos à superfície lateral com fita ou abas; não há linha reta de dobra entre o círculo e o retângulo.';
+ }else if(t==='cone'){
+  const g=Math.hypot(r,h),theta=2*Math.PI*r/g;
+  const pts=[[0,0]];
+  for(let i=0;i<=260;i++){const a=-theta/2+i*theta/260;pts.push([g*Math.cos(a),g*Math.sin(a)]);}
+  push(pts,'Setor lateral');const maxX=Math.max(...pts.map(p=>p[0]));
+  push(Array.from({length:160},(_,i)=>[maxX+1.25*r+r*Math.cos(i*2*Math.PI/160),r*Math.sin(i*2*Math.PI/160)]),'Base circular');
+  note='Planificação: setor circular com raio igual à geratriz e um círculo para a base. Una com fita/abas; o arco do setor corresponde à circunferência da base.';
+ }else if(t==='sphere'){
+  const count=10,step=2*Math.PI*r/count,gap=.15*r,width=2*Math.PI*r/count;
+  for(let i=0;i<count;i++){
+   const x=i*(width+gap),poly=[],L=90;
+   for(let j=0;j<=L;j++){const a=Math.PI*j/L;poly.push([x+width/2+width/2*Math.sin(a),r*a]);}
+   for(let j=L;j>=0;j--){const a=Math.PI*j/L;poly.push([x+width/2-width/2*Math.sin(a),r*a]);}
+   push(poly,`Gomo ${i+1}`);
+  }
+  note='A esfera não admite planificação plana exata. Estes 10 gomos são uma aproximação para recorte e montagem, podendo exigir pequenos ajustes.';
+ }
+ const unique=new Map(),key=p=>p.map(v=>Math.round(v*100000)/100000).join(',');
+ for(const face of faces)for(let i=0;i<face.pts.length;i++){
+  const a=face.pts[i],b=face.pts[(i+1)%face.pts.length],ka=key(a),kb=key(b),k=ka<kb?ka+'|'+kb:kb+'|'+ka;
+  if(!unique.has(k))unique.set(k,{a,b,count:0}); unique.get(k).count++;
+ }
+ const lines=[...unique.values()].map(v=>({...v,fold:v.count>1}));
+ const xx=faces.flatMap(f=>f.pts.map(p=>p[0])),yy=faces.flatMap(f=>f.pts.map(p=>p[1]));
+ return {faces,lines,bounds:{minX:Math.min(...xx),maxX:Math.max(...xx),minY:Math.min(...yy),maxY:Math.max(...yy)},note};
+}
+let netModel=null;
+function drawNet(C,W,H){
+ if(!netModel||!W||!H)return;
+ C.clearRect(0,0,W,H);C.fillStyle='#fbfdfb';C.fillRect(0,0,W,H);
+ const {minX,maxX,minY,maxY}=netModel.bounds,dx=Math.max(.05,maxX-minX),dy=Math.max(.05,maxY-minY),margin=30,k=Math.min((W-2*margin)/dx,(H-2*margin)/dy),cx=(W-k*dx)/2,cy=(H-k*dy)/2;
+ const xy=p=>[(p[0]-minX)*k+cx,(p[1]-minY)*k+cy];
+ netModel.faces.forEach((f,i)=>{C.beginPath();f.pts.forEach((p,j)=>{const [x,y]=xy(p);j?C.lineTo(x,y):C.moveTo(x,y)});C.closePath();C.fillStyle=i%2?'#e5f1e9':'#cde5d4';C.fill();});
+ C.lineWidth=1.7;
+ for(const line of netModel.lines){const [x1,y1]=xy(line.a),[x2,y2]=xy(line.b);C.beginPath();C.moveTo(x1,y1);C.lineTo(x2,y2);C.setLineDash(line.fold?[5,4]:[]);C.strokeStyle=line.fold?'#0b5c98':'#235c43';C.stroke();}
+ C.setLineDash([]);C.textAlign='center';C.textBaseline='middle';C.font=`600 ${Math.min(13,Math.max(8,k*.18))}px system-ui,Arial`;
+ for(const f of netModel.faces){
+  if(f.name.startsWith('Lateral ')&&f.pts.length>4)continue;
+  if(data.type==='sphere'||data.type==='cone')continue;
+  const x=f.pts.reduce((s,p)=>s+p[0],0)/f.pts.length,y=f.pts.reduce((s,p)=>s+p[1],0)/f.pts.length,[px,py]=xy([x,y]);
+  C.fillStyle='#194d39';if(k>18)C.fillText(f.name,px,py,Math.max(12,k*.8));
+ }
+}
+function resizeNet(){const c=$('netCanvas'),r=c.getBoundingClientRect();if(!r.width||!r.height)return;const d=Math.min(window.devicePixelRatio||1,2);c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);const C=c.getContext('2d');C.setTransform(d,0,0,d,0,0);drawNet(C,r.width,r.height);}
+function updateNet(){netModel=newNet();$('netWarning').textContent=netModel.note;resizeNet();}
+function selectView(mode){$('scenePanel').dataset.view=mode;for(const opt of document.querySelectorAll('[data-view-choice]')){const is=opt.dataset.viewChoice===mode;opt.classList.toggle('selected',is);opt.setAttribute('aria-pressed',String(is));}
+ requestAnimationFrame(()=>{resize();resizeNet();});}
+function toggleFacts(){const w=$('workspace'),hide=!w.classList.contains('facts-collapsed');w.classList.toggle('facts-collapsed',hide);$('toggleFacts').textContent=hide?'Mostrar propriedades':'Ocultar propriedades';$('toggleFacts').setAttribute('aria-expanded',String(!hide));requestAnimationFrame(()=>{resize();resizeNet()});}
+
+function svgNet(){
+ const net=netModel||newNet(),{minX,maxX,minY,maxY}=net.bounds,scale=Number($('printScale').value),pad=8,head=19,foot=19;
+ const width=(maxX-minX)*scale+2*pad,height=(maxY-minY)*scale+pad+head+foot;
+ const px=p=>((p[0]-minX)*scale+pad).toFixed(3),py=p=>((p[1]-minY)*scale+head).toFixed(3);
+ const path=net.faces.map((f,i)=>`<polygon points="${f.pts.map(p=>px(p)+','+py(p)).join(' ')}" fill="${i%2?'#edf5ef':'#d5e9db'}"/>`).join('');
+ const lines=net.lines.map(l=>`<line x1="${px(l.a)}" y1="${py(l.a)}" x2="${px(l.b)}" y2="${py(l.b)}" stroke="${l.fold?'#0a5c92':'#124d30'}" stroke-width="0.35" ${l.fold?'stroke-dasharray="1.6,1.1"':''}/>`).join('');
+ const labels=net.faces.filter(f=>!['sphere','cone'].includes(data.type)).map(f=>{const x=f.pts.reduce((s,p)=>s+p[0],0)/f.pts.length,y=f.pts.reduce((s,p)=>s+p[1],0)/f.pts.length;return `<text x="${px([x,y])}" y="${py([x,y])}" text-anchor="middle" font-size="2.5" fill="#145131">${f.name}</text>`}).join('');
+ const escapeXML=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ const title=escapeXML(props().name),note=escapeXML(net.note);
+ const scaleUnit=Number($('printScale').value);
+ let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width.toFixed(2)}mm" height="${height.toFixed(2)}mm" viewBox="0 0 ${width.toFixed(3)} ${height.toFixed(3)}"><rect width="100%" height="100%" fill="#fff"/><text x="${pad}" y="7.5" font-family="Arial,sans-serif" font-size="5" font-weight="bold" fill="#052b55">${title} • planificação 2D</text><text x="${pad}" y="12.5" font-family="Arial,sans-serif" font-size="3.2" fill="#326347">Colégio Divino Saber • Prof. Bruno Fabiano Chiodini</text><text x="${pad}" y="17" font-family="Arial,sans-serif" font-size="3" fill="#466257">Escala: 1 u. = ${scaleUnit} mm • impressão em tamanho real (100%)</text>${path}${lines}${labels}<text x="${pad}" y="${height-12}" font-family="Arial,sans-serif" font-size="2.9" fill="#124d30">Contínua: cortar  |  Tracejada: dobrar  |  Montagem: fita/abas externas</text><text x="${pad}" y="${height-7}" font-family="Arial,sans-serif" font-size="2.55" fill="#50665c">${note.length>180?note.slice(0,177)+'…':note}</text></svg>`;
+ return {svg,width,height};
+}
+function fileName(which,ext){return 'divino-saber-'+data.type+(['prism','pyramid'].includes(data.type)?'-'+data.n+'-lados':'')+'-'+which+'.'+ext;}
+function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3500);}
+function exportNetPNG(){const net=netModel||newNet(),dx=net.bounds.maxX-net.bounds.minX,dy=net.bounds.maxY-net.bounds.minY,ratio=dx/Math.max(.01,dy),long=2200,c=document.createElement('canvas');
+ c.width=ratio>=1?long:Math.max(750,Math.round(long*ratio));c.height=ratio<1?long:Math.max(750,Math.round(long/ratio));drawNet(c.getContext('2d'),c.width,c.height);c.toBlob(b=>{if(b)downloadBlob(b,fileName('planificacao','png'))},'image/png');announce('Planificação 2D em PNG gerada.');}
+function exportNetSVG(){downloadBlob(new Blob([svgNet().svg],{type:'image/svg+xml;charset=utf-8'}),fileName('planificacao','svg'));announce('SVG vetorial gerado para impressão.');}
+function printNet(){const {svg,width,height}=svgNet();const page=width>180||height>267?'landscape':'portrait';
+ if((page==='landscape'&&(width>277||height>190))||(page==='portrait'&&(width>180||height>267)))announce('Planificação maior que a área útil de A4. Reduza a escala ou utilize papel maior.');
+ const frame=document.createElement('iframe');frame.style.cssText='position:fixed;width:0;height:0;border:0;left:-2000px;top:-2000px';document.body.appendChild(frame);
+ frame.onload=()=>{try{frame.contentWindow.focus();frame.contentWindow.print();}catch(e){announce('Use o arquivo SVG para imprimir em escala real.')}setTimeout(()=>frame.remove(),3000)};
+ frame.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 ${page};margin:10mm}*{box-sizing:border-box}body{margin:0}svg{display:block;max-width:none;max-height:none}</style></head><body>${svg}</body></html>`;
+}
+// Malhas triangulares STL fechadas (milímetros) com normais orientadas para fora.
+function stlTriangles(){
+ const t=data.type,r=data.radius,h=data.height,geo=activeGeo||buildGeo(),triangles=[];
+ const add=(a,b,c)=>{
+  const nrm=normal(a,b,c),center=[(a[0]+b[0]+c[0])/3,(a[1]+b[1]+c[1])/3,(a[2]+b[2]+c[2])/3];
+  // Para sólidos convexos centrados na origem, o produto escalar deve ser positivo.
+  if(nrm[0]*center[0]+nrm[1]*center[1]+nrm[2]*center[2]<0)[b,c]=[c,b];
+  triangles.push([a,b,c]);
+ };
+ if(t==='sphere'){
+  const lat=48,lon=96,verts=[[0,r,0]];
+  for(let j=1;j<lat;j++){let phi=Math.PI*j/lat;for(let i=0;i<lon;i++){let a=2*Math.PI*i/lon;verts.push([r*Math.sin(phi)*Math.cos(a),r*Math.cos(phi),r*Math.sin(phi)*Math.sin(a)]);}}
+  const bot=verts.length;verts.push([0,-r,0]);
+  const ring=(j,i)=>1+j*lon+(i%lon);
+  for(let i=0;i<lon;i++)add(verts[0],verts[ring(0,i)],verts[ring(0,i+1)]);
+  for(let j=0;j<lat-2;j++)for(let i=0;i<lon;i++){const a=ring(j,i),b=ring(j,i+1),c=ring(j+1,i),d=ring(j+1,i+1);add(verts[a],verts[c],verts[b]);add(verts[b],verts[c],verts[d]);}
+  for(let i=0;i<lon;i++)add(verts[bot],verts[ring(lat-2,i+1)],verts[ring(lat-2,i)]);
+ }else if(t==='cylinder'||t==='cone'){
+  const seg=96,base=Array.from({length:seg},(_,i)=>[r*Math.cos(i*2*Math.PI/seg),-h/2,r*Math.sin(i*2*Math.PI/seg)]);
+  const bc=[0,-h/2,0];for(let i=0;i<seg;i++)add(bc,base[i],base[(i+1)%seg]);
+  if(t==='cylinder'){
+   const top=base.map(p=>[p[0],h/2,p[2]]),tc=[0,h/2,0];
+   for(let i=0;i<seg;i++){const j=(i+1)%seg;add(tc,top[j],top[i]);add(base[i],base[j],top[i]);add(top[i],base[j],top[j]);}
+  }else{const apex=[0,h/2,0];for(let i=0;i<seg;i++)add(base[i],base[(i+1)%seg],apex);}
+ }else{
+  for(const face of geo.faces){if(face.length<3)continue;const pts=face.map(i=>geo.vertices[i]);for(let k=1;k<pts.length-1;k++)add(pts[0],pts[k],pts[k+1]);}
+ }
+ return triangles;
+}
+function exportSTL(){
+ const tris=stlTriangles(),mm=Number($('printScale').value),lines=['solid divino_saber_'+data.type];
+ for(const tri of tris){let [a,b,c]=tri,n=normal(a,b,c);lines.push(`facet normal ${n.map(x=>x.toFixed(7)).join(' ')}`,'outer loop');for(const v of tri)lines.push('vertex '+v.map(x=>(x*mm).toFixed(5)).join(' '));lines.push('endloop','endfacet');}
+ lines.push('endsolid divino_saber');downloadBlob(new Blob([lines.join('\n')],{type:'model/stl'}),fileName('impressao-3d','stl'));announce('STL fechado gerado em milímetros.');
+}
+function exportSheetPNG(){
+ const w=2000,h=1414,out=document.createElement('canvas');out.width=w;out.height=h;
+ const C=out.getContext('2d');C.fillStyle='#f9fcfa';C.fillRect(0,0,w,h);
+ const logo=$('schoolLogo');if(logo.complete&&logo.naturalWidth>0){C.drawImage(logo,75,35,320,147);}
+ C.fillStyle='#052b55';C.font='bold 54px system-ui,Arial';C.fillText(props().name,450,96);
+ C.fillStyle='#145131';C.font='600 26px system-ui,Arial';C.fillText('LABORATÓRIO DE SÓLIDOS GEOMÉTRICOS',455,145);
+ const labels=[['VISUALIZAÇÃO 3D',68],['PLANIFICAÇÃO 2D',1038]];
+ for(let [label,x] of labels){C.fillStyle='#fff';C.fillRect(x,200,894,936);C.strokeStyle='#d6e9dc';C.lineWidth=3;C.strokeRect(x,200,894,936);C.fillStyle='#124d30';C.font='bold 27px system-ui,Arial';C.fillText(label,x+26,249);}
+ const a=document.createElement('canvas');a.width=870;a.height=830;render(a.getContext('2d'),870,830,true);C.drawImage(a,80,272);
+ const b=document.createElement('canvas');b.width=870;b.height=830;drawNet(b.getContext('2d'),870,830);C.drawImage(b,1050,272);
+ C.fillStyle='#052b55';C.font='bold 34px system-ui,Arial';let m=measures();C.fillText('Área total: '+fmtMetric(m.area)+' u²',76,1200);C.fillText('Volume: '+fmtMetric(m.volume)+' u³',1039,1200);
+ C.fillStyle='#48695a';C.font='25px system-ui,Arial';C.fillText('Prof. Bruno Fabiano Chiodini',76,1261);
+ C.fillText('Contínua: corte    |    Tracejada: dobra',1039,1261);
+ C.font='22px system-ui,Arial';C.fillText(data.type==='sphere'?'Planificação esférica: aproximação por gomos.':'Planificação didática para recorte, dobra e montagem.',76,1331);
+ out.toBlob(blob=>{if(blob)downloadBlob(blob,fileName('ficha-3d-e-2d','png'));},'image/png');announce('Ficha combinada 3D e 2D gerada.');
+}
+function export3DPNG(){ $('pngBtn').click(); }
+
 function refresh(){activeGeo=buildGeo();const p=props();$('solidTitle').textContent=p.name;$('solidSubtitle').textContent= data.type==='prism'||data.type==='pyramid'?`Base com ${data.n} lados`:p.cl;$('typeTip').textContent=tip[data.type];$('countV').textContent=p.V;$('countE').textContent=p.E;$('countF').textContent=p.F;$('edgesDescr').textContent=p.edgeNote;$('facesDescr').textContent=p.faceNote;$('factClass').textContent=p.cl;$('factBase').textContent=p.base;$('factLateral').textContent=p.lateral;$('factBases').textContent=p.bases;
 if(p.euler){$('eulerTitle').textContent='Relação de Euler';$('eulerEquation').textContent=`${p.V} − ${p.E} + ${p.F} = 2`;$('eulerCaption').textContent='V − A + F = 2 (poliedros convexos)';$('eulerBadge').textContent='✓ Relação verificada';$('eulerBadge').style.display='table';}else{$('eulerTitle').textContent='Corpos redondos';$('eulerEquation').textContent='V − A + F';$('eulerCaption').textContent='A relação de Euler para poliedros não se aplica a este sólido.';$('eulerBadge').style.display='none';}
 $('formulaTitle').textContent=data.type==='prism'?'Fórmulas do prisma':data.type==='pyramid'?'Fórmulas da pirâmide':'Propriedades e contagens';$('formulaLines').innerHTML=p.formulas.map(([f,v])=>`<div><b>${f}</b> → ${v}</div>`).join('');$('questionText').textContent=p.question[questionIndex%p.question.length];$('sidesSection').classList.toggle('hidden',!['prism','pyramid'].includes(data.type));$('heightSection').classList.toggle('hidden',['cube','tetra','octa','sphere'].includes(data.type));$('gridLabel').classList.toggle('hidden',data.type!=='sphere');$('radiusTitle').textContent=['sphere','cube','tetra','octa'].includes(data.type)?'Tamanho / raio':(data.type==='prism'||data.type==='pyramid'?'Raio circunscrito da base':data.type==='box'?'Tamanho da base':'Raio da base');$('baseName').textContent=`Base ${prefixes[data.n]} • ${data.n} lados`;$('sidesValue').textContent=data.n;$('radiusValue').textContent=fmt(data.radius)+' u.';$('heightValue').textContent=fmt(data.height)+' u.';
-$('showLabels').disabled=['sphere','cylinder'].includes(data.type);$('showVertices').disabled=['sphere','cylinder'].includes(data.type);$('showEdges').disabled=data.type==='sphere';resize();}
+$('showLabels').disabled=['sphere','cylinder'].includes(data.type);$('showVertices').disabled=['sphere','cylinder'].includes(data.type);$('showEdges').disabled=data.type==='sphere';updateMeasures();updateNet();resize();}
 function announce(txt){clearTimeout(toaster);$('toast').textContent=txt;$('toast').classList.add('active');toaster=setTimeout(()=>$('toast').classList.remove('active'),2300);}
 $('solidType').addEventListener('change',e=>{data.type=e.target.value;if(data.type==='sphere'){data.grid=true;$('showGrid').checked=true;}data.rotX=-.32;data.rotY=.53;data.zoom=1;questionIndex=0;refresh();});
 function setN(v){data.n=clamp(Math.round(v),3,12);$('sidesRange').value=data.n;questionIndex=0;refresh();}$('sidesRange').addEventListener('input',e=>setN(+e.target.value));$('minusSide').onclick=()=>setN(data.n-1);$('plusSide').onclick=()=>setN(data.n+1);
@@ -118,7 +354,14 @@ $('generateBtn').onclick=()=>{refresh();announce('Sólido gerado e atualizado.')
 let dragging=false,lastX=0,lastY=0;canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId);});canvas.addEventListener('pointermove',e=>{if(!dragging)return;let dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;data.rotY+=dx*.009;data.rotX=clamp(data.rotX+dy*.008,-1.45,1.45);render(ctx,stageW,stageH);});for(let ev of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(ev,()=>dragging=false);canvas.addEventListener('wheel',e=>{e.preventDefault();data.zoom=clamp(data.zoom*(e.deltaY>0?.91:1.09),.55,2.6);render(ctx,stageW,stageH);},{passive:false});canvas.addEventListener('keydown',e=>{let used=true;if(e.key==='ArrowLeft')data.rotY-=.12;else if(e.key==='ArrowRight')data.rotY+=.12;else if(e.key==='ArrowUp')data.rotX=clamp(data.rotX-.12,-1.45,1.45);else if(e.key==='ArrowDown')data.rotX=clamp(data.rotX+.12,-1.45,1.45);else if(e.key==='+'||e.key==='=')data.zoom=clamp(data.zoom*1.12,.55,2.6);else if(e.key==='-')data.zoom=clamp(data.zoom/1.12,.55,2.6);else used=false;if(used){e.preventDefault();render(ctx,stageW,stageH);}});
 function frame(t){if(data.auto&&!dragging){let dt=lastT?Math.min(40,t-lastT):16;data.rotY+=dt*.00035;render(ctx,stageW,stageH);}lastT=t;requestAnimationFrame(frame);}requestAnimationFrame(frame);
 $('pngBtn').onclick=()=>{try{let result=document.createElement('canvas');result.width=1500;result.height=1050;let C=result.getContext('2d');render(C,1500,1050,true);C.fillStyle='#083466';C.font='bold 57px system-ui,Arial';C.fillText(props().name,70,115);C.fillStyle='#547c63';C.font='bold 21px system-ui,Arial';C.fillText('COLÉGIO DIVINO SABER  •  LABORATÓRIO DE MATEMÁTICA',72,55);C.fillStyle='#315448';C.font='bold 27px system-ui,Arial';let p=props();C.fillText(`Vértices: ${p.V}     Arestas: ${p.E}     Faces: ${p.F}`,72,950);C.font='20px system-ui,Arial';C.fillText('Prof. Bruno Fabiano Chiodini',72,1001);let a=document.createElement('a');a.download='solido-'+data.type+(data.type==='prism'||data.type==='pyramid'?'-'+data.n+'-lados':'')+'.png';a.href=result.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove();announce('Imagem PNG preparada.');}catch(err){announce('Não foi possível salvar a imagem neste navegador.');console.error(err);}};
-if('ResizeObserver' in window)new ResizeObserver(resize).observe($('canvasHolder'));else window.addEventListener('resize',resize);
+for(const b of document.querySelectorAll('[data-view-choice]'))b.addEventListener('click',()=>selectView(b.dataset.viewChoice));
+$('toggleFacts').onclick=toggleFacts;
+$('netPngBtn').onclick=exportNetPNG;
+$('netSvgBtn').onclick=exportNetSVG;
+$('sheetPngBtn').onclick=exportSheetPNG;
+$('netPrintBtn').onclick=printNet;
+$('stlBtn').onclick=exportSTL;
+if('ResizeObserver' in window){new ResizeObserver(resize).observe($('canvasHolder'));new ResizeObserver(resizeNet).observe($('netCanvas').parentElement);}else window.addEventListener('resize',()=>{resize();resizeNet();});
 refresh();
 })();
 </script>
