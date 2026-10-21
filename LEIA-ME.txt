@@ -1,0 +1,35 @@
+LABORATÓRIO 3D DE SÓLIDOS GEOMÉTRICOS
+Colégio Divino Saber
+Professor responsável: Bruno Fabiano Chiodini
+
+COMO ABRIR
+1. Extraia o conteúdo do arquivo ZIP, se necessário.
+2. Abra "index.html" no Chrome, Edge, Firefox ou outro navegador moderno.
+3. O site funciona localmente sem internet. Não exige instalação nem cadastro.
+
+COMO PUBLICAR NA INTERNET
+Envie o arquivo "index.html" para a pasta pública de sua hospedagem.
+Também é possível publicar como site estático no GitHub Pages,
+Netlify, Vercel ou serviço equivalente. Nenhuma biblioteca externa é necessária.
+
+RECURSOS INCLUÍDOS
+- Prismas e pirâmides com bases de 3 a 12 lados;
+- Cubo, paralelepípedo retângulo, tetraedro e octaedro regulares;
+- Cilindro, cone e esfera;
+- Ajuste de medidas, cores e opções de visualização;
+- Rotação por arrastar, zoom, rotação automática e controle por teclado;
+- Exibição de vértices, arestas e faces;
+- Identificação dos vértices nos poliedros;
+- Contagens, fórmulas e relação de Euler para poliedros convexos;
+- Perguntas matemáticas para investigação;
+- Exportação em PNG;
+- Interface adaptada para computador, tablet e celular;
+- Logomarca institucional incorporada ao próprio HTML.
+
+OBSERVAÇÃO DIDÁTICA
+Nas convenções escolares adotadas neste material, o cilindro é descrito
+com 3 faces (2 planas e 1 curva), 2 arestas curvas e 0 vértices;
+o cone possui 2 faces (1 plana e 1 curva), 1 aresta curva e 1 vértice;
+a esfera possui 1 superfície curva, sem arestas e sem vértices.
+A relação de Euler V - A + F = 2 é verificada somente para poliedros convexos.
+As medidas fornecidas são unidades arbitrárias para exploração visual.
